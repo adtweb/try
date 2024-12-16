@@ -4,7 +4,7 @@ include .env
 up:
 	docker compose up -d
 
-up-build:
+build:
 	docker compose up -d --build
 
 down:
