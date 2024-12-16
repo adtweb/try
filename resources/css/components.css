@@ -1,0 +1,107 @@
+/* Form Select */
+
+.form__select {
+	max-width: 100%;
+	position: relative;
+}
+
+.form__select .select__ui {
+	width: 100%;
+	border-radius: 0.1875rem;
+	border: 1px solid var(--accent);
+	overflow: hidden;
+}
+.form__select .select__ui.select__ui_opened {
+	border-bottom: 0;
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+}
+
+.form__select .ui__header {
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: auto;
+	color: inherit;
+	text-align: left;
+	background-color: transparent;
+	cursor: pointer;
+	width: 100%;
+}
+
+.form__select .ui__selection {
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	height: 1.75rem;
+	padding: 0 0.9375rem;
+	gap: 0.625rem;
+}
+.form__select .ui__selection::after {
+	content: "\e900";
+	font-family: icons;
+	font-style: normal;
+	font-weight: 400;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	font-size: 0.625rem;
+	align-self: stretch;
+	flex: 0 0 10px;
+	transition: all 0.3s ease 0s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.form__select .select__ui_opened .ui__selection::after {
+	transform: rotate(180deg);
+}
+.form__select .selection__content {
+	flex: 1 1 auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+.form__select .ui__body {
+	color: var(--text-primary);
+	position: absolute;
+	/* top: calc(100% - 0.0625rem); */
+	border-radius: 0 0 4px 4px;
+	min-width: 100%;
+	left: 0;
+	background-color: #fff;
+	
+	z-index: 1;
+
+	transition: grid-template-rows 0.1s ease;
+	display: grid;
+	grid-template-rows: 0fr;
+	overflow: hidden;
+}
+.form__select .select__ui_opened .ui__body {
+	grid-template-rows: 1fr;
+	border: 1px solid var(--text-primary);
+	border-top: 0;
+}
+.form__select .ui__items {
+	min-height: 0;
+}
+.form__select .items-wrap {
+	overflow-y: auto;
+	max-height: 12.5rem;
+	padding: 15px 0 5px 0;
+}
+.form__select .ui__item {
+	width: 100%;
+	text-align: left;
+	cursor: pointer;
+	padding: 5px 15px;
+	color: inherit;
+}
+.form__select .ui__item.ui__item_selected {
+	background-color: var(--bg-inverse);
+	color: var(--bg-white);
+}
+.form__select .ui__item:hover {
+	background: #d9d9d9;
+	color: var(--text-primary)
+}
