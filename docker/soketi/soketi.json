@@ -1,0 +1,23 @@
+{
+    "debug": false,
+    "port": 6001,
+    "metrics": {
+    	"enabled": false,
+	"driver": "prometheus",
+	"host": "0.0.0.0",
+	"prometheus": { "prefix": "soketi_" },
+	"port": 9601
+    },
+    "appManager.array.apps": [
+        {
+            "id": "test-app",
+            "key": "test-app-key",
+            "secret": "test-app-secret"
+        },
+        {
+            "id": "12894366",
+            "key": "conferences",
+            "secret": "qwkIk54avv"
+        }
+    ]
+}

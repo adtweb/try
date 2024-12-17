@@ -24,6 +24,18 @@ services:
             - sail
         depends_on:
             - mysql
+            - soketi
+    soketi:
+        image: quay.io/soketi/soketi:latest-16-alpine
+        restart: unless-stopped
+        volumes:
+            - ./docker/soketi/soketi.json:/app/config/soketi.json
+        command: ["node", "/app/dist/server.js", "--config", "/app/config/soketi.json"]
+        ports:
+            - "6001:6001"
+            - "9601:9601"
+        networks:
+            - sail
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:
