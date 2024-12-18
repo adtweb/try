@@ -73,6 +73,11 @@ php artisan migrate:refresh
 make migrate-refresh
 ```
 
+mysql
+```
+make mysql
+```
+
 composer update
 ```
 make composer-update

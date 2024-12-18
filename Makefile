@@ -17,42 +17,45 @@ ps:
 	docker ps
 
 bash:
-	docker exec -ti ${APP_DIR}-laravel-1 bash
+	docker exec -ti ${APP_DIR}-laravel bash
 
 key:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan key:generate
+	docker exec -ti ${APP_DIR}-laravel php artisan key:generate
 
 package-discover:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan package:discover
+	docker exec -ti ${APP_DIR}-laravel php artisan package:discover
 
 seed:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan db:seed
+	docker exec -ti ${APP_DIR}-laravel php artisan db:seed
 
 migrate:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan migrate
+	docker exec -ti ${APP_DIR}-laravel php artisan migrate
 
 migrate-refresh:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan migrate:refresh
+	docker exec -ti ${APP_DIR}-laravel php artisan migrate:refresh
 
 install:
-	docker exec -ti ${APP_DIR}-laravel-1 composer install
+	docker exec -ti ${APP_DIR}-laravel composer install
 
 composer-update:
-	docker exec -ti ${APP_DIR}-laravel-1 composer update
+	docker exec -ti ${APP_DIR}-laravel composer update
 
 local-update: install migrate
 
+mysql:
+	docker exec -ti ${APP_DIR}-mysql mysql -u${DB_USERNAME} -p${DB_PASSWORD} ${APP_DIR}
+
 refresh:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan migrate:refresh --seed
+	docker exec -ti ${APP_DIR}-laravel php artisan migrate:refresh --seed
 
 pint-diff:
-	docker exec -ti ${APP_DIR}-laravel-1 ./vendor/bin/pint --test
+	docker exec -ti ${APP_DIR}-laravel ./vendor/bin/pint --test
 
 pint:
-	docker exec -ti ${APP_DIR}-laravel-1 ./vendor/bin/pint
+	docker exec -ti ${APP_DIR}-laravel ./vendor/bin/pint
 
 composer-test:
-	docker exec -ti ${APP_DIR}-laravel-1 composer test
+	docker exec -ti ${APP_DIR}-laravel composer test
 
 tinker:
-	docker exec -ti ${APP_DIR}-laravel-1 php artisan tinker
+	docker exec -ti ${APP_DIR}-laravel php artisan tinker
